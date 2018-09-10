@@ -28,13 +28,31 @@
         </ul>
 
         <ul class="nav navbar-nav navbar-right">
-          <li><%= link_to "Create Post", new_post_path, class: 'nav-link' %></li>
+          <% if logged_in? %>
+            <li>
+              <%= link_to "Create Post", new_post_path, class: 'nav-link' %>
+            </li>
+            <li>
+              <%= link_to 'Logout', logout_path, class: 'nav-link' %>
+            </li>
+          <% else %>
+            <li>
+              <%= link_to "Log In", login_path, class: 'nav-link' %>
+            </li>
+            <li>
+              <%= link_to "Sign Up", signup_path, class: 'nav-link' %>
+            </li>
+          <% end %>
         </ul>
       </div>
     </nav>
 
     <main role="main" class="container">
       <div class="starter-template">
+        <% flash.each do |name, msg| %>
+          <%= content_tag :div, msg, id: "flash_#{name}" %>
+        <% end %>
+
         <%= yield %>
       </div>
     </main>
