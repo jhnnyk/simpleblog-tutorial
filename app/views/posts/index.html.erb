@@ -4,10 +4,10 @@
     <div class="card-body bg-light">
       <h6>
         <small class="text-muted">
-          <%= post.date.strftime("%B %d, %Y") %>
+          <%= post.date.strftime("%B %-d, %Y") %>
         </small>
       </h6>
-      
+
       <h3 class="card-title"><%= post.title %></h3>
       <p class="card-text"><%= post.body %></p>
       <%= link_to "Read More", post_path(post), class: 'btn btn-primary' %>
