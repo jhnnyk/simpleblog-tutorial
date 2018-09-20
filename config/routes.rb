@@ -11,4 +11,5 @@ Rails.application.routes.draw do
 
   get 'about' => 'pages#about', as: 'about'
   get 'dev' => 'pages#dev', as: 'dev'
+  get 'nolans-14' => 'posts#show', id: 8, as: 'nolans-14'
 end
